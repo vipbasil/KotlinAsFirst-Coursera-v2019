@@ -3,6 +3,7 @@
 package lesson2.task2
 
 import lesson1.task1.sqr
+import lesson2.task1.segmentLength
 
 /**
  * Пример
@@ -59,4 +60,16 @@ fun circleInside(
  * кирпич 4 х 4 х 4 пройдёт через отверстие 4 х 4.
  * Вернуть true, если кирпич пройдёт
  */
-fun brickPasses(a: Int, b: Int, c: Int, r: Int, s: Int): Boolean = TODO()
+fun brickPasses(a: Int, b: Int, c: Int, r: Int, s: Int): Boolean =
+    when {
+        (r >= a && (s >= b || s >= c)) -> true
+        (r >= b && (s >= a || s >= b)) -> true
+        (r >= c && (s >= a || s >= b)) -> true
+        else -> false
+    }
+fun main() {
+    //val x1x2 = quadraticRootProduct(1.0, 13.0, 42.0)
+    //val result : Int = sqr(2)
+    val bp = brickPasses(4,6,5,4,5)
+    println("Rads : $bp")
+}
